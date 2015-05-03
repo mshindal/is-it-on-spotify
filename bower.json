@@ -1,0 +1,21 @@
+{
+  "name": "is-it-on-spotify",
+  "version": "0.0.0",
+  "authors": [
+    "Matt Shindala <mshindal@vols.utk.edu>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.4",
+    "handlebars": "~3.0.2",
+    "animate.css": "~3.2.6",
+    "flag-icon-css": "~0.7.1"
+  }
+}

@@ -1,0 +1,61 @@
+<div class="row">
+	<div class="col-xs-12">
+		<h3>Tracks <small>{{tracks.total}} Results</small></h3>
+		<hr>
+	</div>
+</div>
+{{#if tracks.total}}
+	{{#each tracks.items}}
+		<div class="track row">
+			<div class="col-xs-2 col-lg-1">
+				<div class="square rounded-border" style="background-image: url({{this.album.images.[1].url}})">
+				</div>
+			</div>
+			<div class="col-xs-4 col-sm-2 col-lg-3">
+				<a class="selflink" href="http://localhost:8080/#track:{{encodeHash this.name}}">
+					{{this.name}}
+				</a>
+				{{#if this.explicit}}
+					<span class="label label-danger"> E</span>
+				{{/if}}
+			</div>
+			<div class="hidden-xs col-sm-2">
+				<a class="selflink" href="http://localhost:8080/#artist:{{encodeHash this.artists.[0].name}}">
+					{{this.artists.[0].name}}
+				</a>
+			</div>
+			<div class="hidden-xs col-sm-2">
+				<a class="selflink" href="http://localhost:8080/#album:{{encodeHash this.album.name}}">
+					{{this.album.name}}
+				</a>
+			</div>
+			<div class="col-xs-3 col-sm-2">
+				<a class="btn btn-default track-preview">
+					<span class="glyphicon glyphicon-play"></span>
+					<span class="hidden-xs hidden-sm">Preview</span>
+				</a>
+				<audio preload="none" src="{{this.preview_url}}"></audio>
+			</div>
+			<div class="col-xs-3 col-sm-2">
+				<a href="{{this.uri}}" class="btn btn-default">
+					<span class="glyphicon glyphicon-link"></span>
+					<span class="hidden-xs hidden-sm">Spotify</span>
+				</a>
+			</div>
+		</div>
+	{{/each}}
+	<div class="row">
+		<div class="col-xs-12">
+			<nav>
+				<ul class="pager">
+					<li class="{{#unless tracks.previous}}disabled{{/unless}}">
+						<a href="#" id="previousTracks">Previous</a>
+					</li>
+					<li class="{{#unless tracks.next}}disabled{{/unless}}">
+						<a href="#" id="nextTracks">Next</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+{{/if}}
