@@ -10,31 +10,20 @@
 			<div class="list-group">
 				{{#each artists.items}}
 					<div class="list-group-item artist">
-						<a class="selflink" href="http://localhost:8080/#artist:{{encodeHash this.name}}">
+						<a class="selflink" href="http://localhost:8080/#{{encodeHash "artist:" this.name}}">
 							<h4 class="list-group-item-heading">
 								{{this.name}}
 							</h4>
 						</a>
 						<p class="list-group-item-text">
+							Followers: {{this.followers.total}}<br>
 							{{#if this.genres.length}}
 								Genres: {{listGenresPretty this.genres}}<br>
 							{{/if}}
-							Popularity: <span class="label label-default">{{this.popularity}}/100</span>
+							Popularity: {{this.popularity}}
 						</p>
-						<a href="#" class="btn btn-default"><span class="glyphicon glyphicon-link"></span> Spotify</a>
+						<a href="{{this.uri}}" class="btn btn-default"><span class="glyphicon glyphicon-link"></span> Spotify</a>
 					</div>
-					<!--
-					<div class="artist col-xs-12 col-sm-4 col-md-3">
-						<div class="thumbnail">
-							{{#if this.images.length}}
-								<img class="img-responsive" src="{{this.images.[1].url}}">
-							{{/if}}
-							<div class="caption">
-								<h4>{{this.name}} <small>{{this.followers.total}} followers</small></h4>
-							</div>
-						</div>
-					</div>
-					-->
 				{{/each}}
 			</div>
 		</div>
