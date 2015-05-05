@@ -1,7 +1,5 @@
 'use strict';
 
-var xy;
-
 var isOnSpotify = {
 	init: function(settings) {
 		// default settings
@@ -75,7 +73,6 @@ var isOnSpotify = {
 		str = '';
 
 		genres.forEach(function(val, index) {
-			console.log(val);
 			str += (index ? ', ' : '') + val;
 		});
 		return str;
@@ -191,4 +188,4 @@ var isOnSpotify = {
 	}
 }
 
-$(document).ready(isOnSpotify.init({ debug: true }));
+$(document).ready(isOnSpotify.init({ debug: false }));

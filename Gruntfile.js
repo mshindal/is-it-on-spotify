@@ -50,6 +50,19 @@ module.exports = function(grunt) {
                     "./public/css/style.min.css": "./src/less/style.less"
                 }
             }
+        },
+        copy: {
+            all: {
+                files: [
+                    // copy js files
+                    { flatten: true, expand: true, src: ['bower_components/jquery/dist/jquery.min.js', 'bower_components/jquery/dist/jquery.min.map', 'bower_components/bootstrap/dist/js/bootstrap.min.js', 'bower_components/handlebars/handlebars.runtime.min.js'], dest: 'public/js/' },
+                    // copy flag images
+                    { flatten: true, expand: true, src: ['bower_components/flag-icon-css/flags/1x1/*'], dest: 'public/flags/1x1/' },
+                    { flatten: true, expand: true, src: ['bower_components/flag-icon-css/flags/4x3/*'], dest: 'public/flags/4x3/'},
+                    // copy fonts
+                    { flatten: true, expand: true, src: ['bower_components/bootstrap/dist/fonts/*'], dest: 'public/fonts/' }
+                ]
+            }
         }
     });
 
@@ -58,4 +71,5 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-copy');
 
+    grunt.task.registerTask('default', ['copy', 'handlebars', 'watch']);
 }

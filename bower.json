@@ -15,7 +15,6 @@
   "dependencies": {
     "bootstrap": "~3.3.4",
     "handlebars": "~3.0.2",
-    "animate.css": "~3.2.6",
     "flag-icon-css": "~0.7.1"
   }
 }
