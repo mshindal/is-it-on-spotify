@@ -10,7 +10,7 @@
 			<div class="list-group">
 				{{#each artists.items}}
 					<div class="list-group-item artist">
-						<a class="selflink" href="http://isitonspotify.mshindal.com/#artist:{{encodeHash this.name}}">
+						<a class="selflink" href="/#artist:{{encodeHash this.name}}">
 							<h4 class="list-group-item-heading">
 								{{this.name}}
 							</h4>
@@ -20,9 +20,9 @@
 							{{#if this.genres.length}}
 								Genres: {{listGenresPretty this.genres}}<br>
 							{{/if}}
-							Popularity: {{this.popularity}}
+							Popularity: {{this.popularity}}<br>
+							<a href="{{this.uri}}" class="btn btn-default"><span class="fa fa-spotify"></span> Spotify</a>
 						</p>
-						<a href="{{this.uri}}" class="btn btn-default"><span class="glyphicon glyphicon-link"></span> Spotify</a>
 					</div>
 				{{/each}}
 			</div>

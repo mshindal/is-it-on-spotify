@@ -1,19 +1,19 @@
+// bootstrap imports
 @import 'bootstrap';
 @import 'flag-icon';
-@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
+@import 'font-awesome';
 
-@spotify: rgb(132, 189, 0);
-@spotify-light: rgba(132, 189, 0, .6);
-@spotify-dark: darken(@brand-primary, 20%);
+@fa-font-path: '/fonts/';
 
-@font-family-sans-serif: 'Montserrat', sans-serif;
-@brand-primary: @spotify;
-@state-info-bg: @spotify-light;
-@state-info-text: @spotify-dark;
-@input-border-focus: @spotify;
+@brand-primary: rgb(132, 189, 0);
+@link-color: darken(@brand-primary, 10%);
 
 #main {
 	margin-bottom: 1em;
+}
+
+.hidden {
+	display: none;
 }
 
 #logo img {
@@ -64,7 +64,7 @@
 	color: @text-color;
 }
 .selflink:hover {
-	color: @brand-primary;
+	color: @link-color;
 }
 
 //album listings
@@ -107,7 +107,5 @@
 }
 
 .artist .btn {
-	position: absolute;
-	top: 1em;
-	right: 1em;
-}
+	margin-top: .5em;
+} 	

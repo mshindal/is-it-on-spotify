@@ -90,20 +90,20 @@ var isOnSpotify = {
 	playAudio: function(e) {
 		var btn = $(this);
 		var audio = btn.siblings('audio')[0];
-		var glyphicon = btn.find('.glyphicon');
+		var fa = btn.find('.fa');
 
 		audio.play();
-		glyphicon.removeClass('glyphicon-play').addClass('glyphicon-pause');
+		fa.removeClass('fa-play').addClass('fa-pause');
 		btn.off('click');
 		btn.on('click', function() {
 			audio.pause();
-			glyphicon.removeClass('glyphicon-pause').addClass('glyphicon-play');
+			fa.removeClass('fa-pause').addClass('fa-play');
 			btn.off('click');
 			btn.click(isOnSpotify.playAudio);
 		});
 		$(audio).off('ended');
 		$(audio).on('ended', function(e) {
-			glyphicon.removeClass('glyphicon-pause').addClass('glyphicon-play');
+			fa.removeClass('fa-pause').addClass('fa-play');
 			btn.off('click');
 			btn.click(isOnSpotify.playAudio);
 		});

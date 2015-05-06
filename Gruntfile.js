@@ -41,7 +41,7 @@ module.exports = function(grunt) {
             compile: {
                 options: {
                     paths: function(sourceDir) {
-                        return [sourceDir, './bower_components/bootstrap/less/', './bower_components/flag-icon-css/less/']
+                        return [sourceDir, './bower_components/bootstrap/less/', './bower_components/flag-icon-css/less/', './bower_components/font-awesome/less/']
                     },
                     compress: true,
 
@@ -60,7 +60,7 @@ module.exports = function(grunt) {
                     { flatten: true, expand: true, src: ['bower_components/flag-icon-css/flags/1x1/*'], dest: 'public/flags/1x1/' },
                     { flatten: true, expand: true, src: ['bower_components/flag-icon-css/flags/4x3/*'], dest: 'public/flags/4x3/'},
                     // copy fonts
-                    { flatten: true, expand: true, src: ['bower_components/bootstrap/dist/fonts/*'], dest: 'public/fonts/' }
+                    { flatten: true, expand: true, src: ['bower_components/font-awesome/fonts/*'], dest: 'public/fonts/'}
                 ]
             }
         }
