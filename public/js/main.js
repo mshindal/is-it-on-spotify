@@ -92,8 +92,6 @@ var isOnSpotify = {
 		var audio = btn.siblings('audio')[0];
 		var glyphicon = btn.find('.glyphicon');
 
-		console.log(btn);
-		console.log(audio);
 		audio.play();
 		glyphicon.removeClass('glyphicon-play').addClass('glyphicon-pause');
 		btn.off('click');
@@ -105,7 +103,6 @@ var isOnSpotify = {
 		});
 		$(audio).off('ended');
 		$(audio).on('ended', function(e) {
-			console.log('ended');
 			glyphicon.removeClass('glyphicon-pause').addClass('glyphicon-play');
 			btn.off('click');
 			btn.click(isOnSpotify.playAudio);
