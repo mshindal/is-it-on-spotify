@@ -87,16 +87,29 @@ var isOnSpotify = {
 		str.replace(/-/g, ' ');
 		return str.charAt(0).toUpperCase() + str.slice(1);
 	},
-	playAudio: function() {
-		$(this).siblings('audio')[0].play();
-		$(this).find('.glyphicon').removeClass('glyphicon-play').addClass('glyphicon-pause');
-		$(this).off('click');
-		$(this).click(function(e) {
-			$(this).siblings('audio')[0].pause();
-			$(this).find('.glyphicon').removeClass('glyphicon-pause').addClass('glyphicon-play');
-			$(this).off('click');
-			$(this).click(isOnSpotify.playAudio);
-		})
+	playAudio: function(e) {
+		var btn = $(this);
+		var audio = btn.siblings('audio')[0];
+		var glyphicon = btn.find('.glyphicon');
+
+		console.log(btn);
+		console.log(audio);
+		audio.play();
+		glyphicon.removeClass('glyphicon-play').addClass('glyphicon-pause');
+		btn.off('click');
+		btn.on('click', function() {
+			audio.pause();
+			glyphicon.removeClass('glyphicon-pause').addClass('glyphicon-play');
+			btn.off('click');
+			btn.click(isOnSpotify.playAudio);
+		});
+		$(audio).off('ended');
+		$(audio).on('ended', function(e) {
+			console.log('ended');
+			glyphicon.removeClass('glyphicon-pause').addClass('glyphicon-play');
+			btn.off('click');
+			btn.click(isOnSpotify.playAudio);
+		});
 	},
 	refreshTracks: function(data) {
 		isOnSpotify.tracksDiv.children().remove();
