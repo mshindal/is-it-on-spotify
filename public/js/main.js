@@ -162,6 +162,7 @@ var isOnSpotify = {
 		isOnSpotify.alertsDiv.html(Handlebars.templates.country(obj));
 	},
 	search: function(options) {
+		isOnSpotify.searchBar.blur();
 		isOnSpotify.lastQuery = options.q;
 		isOnSpotify.refreshAlerts();
 
