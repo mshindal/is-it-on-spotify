@@ -8,6 +8,16 @@
 @brand-primary: rgb(132, 189, 0);
 @link-color: darken(@brand-primary, 10%);
 
+// NProgress overrides
+#nprogress .spinner-icon {
+	border-top-color: @brand-primary;
+	border-left-color: @brand-primary;
+}
+
+#nprogress .bar {
+	background: @brand-primary;
+}
+
 #main {
 	margin-bottom: 1em;
 }
@@ -31,15 +41,15 @@
 	// taken from https://jsfiddle.net/webtiki/MpXYr/2/light/
 	// requries a background-image to be set already
 	float: left;
-    position: relative;
-    width: 100%;
-    padding-bottom: 100%;
-    background-position: center center;
-    background-repeat: no-repeat;
-   	-webkit-background-size: cover;
+	position: relative;
+	width: 100%;
+	padding-bottom: 100%;
+	background-position: center center;
+	background-repeat: no-repeat;
+	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
-    background-size: cover;
+	background-size: cover;
 }
 
 

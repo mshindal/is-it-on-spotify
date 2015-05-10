@@ -16,6 +16,7 @@
     "bootstrap": "~3.3.4",
     "handlebars": "~3.0.2",
     "flag-icon-css": "~0.7.1",
-    "font-awesome": "~4.3.0"
+    "font-awesome": "~4.3.0",
+    "nprogress": "~0.1.6"
   }
 }

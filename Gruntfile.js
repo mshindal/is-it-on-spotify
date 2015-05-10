@@ -55,7 +55,9 @@ module.exports = function(grunt) {
             all: {
                 files: [
                     // copy js files
-                    { flatten: true, expand: true, src: ['bower_components/jquery/dist/jquery.min.js', 'bower_components/jquery/dist/jquery.min.map', 'bower_components/bootstrap/dist/js/bootstrap.min.js', 'bower_components/handlebars/handlebars.runtime.min.js'], dest: 'public/js/' },
+                    { flatten: true, expand: true, src: ['bower_components/jquery/dist/jquery.min.js', 'bower_components/jquery/dist/jquery.min.map', 'bower_components/bootstrap/dist/js/bootstrap.min.js', 'bower_components/handlebars/handlebars.runtime.min.js', 'bower_components/nprogress/nprogress.js'], dest: 'public/js/' },
+                    // copy css
+                    { flatten: true, expand: true, src: ['bower_components/nprogress/nprogress.css'], dest: 'public/css/' },
                     // copy flag images
                     { flatten: true, expand: true, src: ['bower_components/flag-icon-css/flags/1x1/*'], dest: 'public/flags/1x1/' },
                     { flatten: true, expand: true, src: ['bower_components/flag-icon-css/flags/4x3/*'], dest: 'public/flags/4x3/'},

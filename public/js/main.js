@@ -112,47 +112,71 @@ var isOnSpotify = {
 		isOnSpotify.tracksDiv.children().remove();
 
 		isOnSpotify.tracksDiv.html(Handlebars.templates.tracks(data));
+		if (NProgress.status) NProgress.done();
 		$('.track-preview').click(isOnSpotify.playAudio);
 		$('#previousTracks').click(function(e) {
 			e.preventDefault();
-			if (data.tracks.previous) $.get(data.tracks.previous, isOnSpotify.refreshTracks);
+			if (data.tracks.previous) {
+				NProgress.start();
+				$.get(data.tracks.previous, isOnSpotify.refreshTracks);
+			}
 		});
 		$('#nextTracks').click(function(e) {
 			e.preventDefault();
-			if (data.tracks.next) $.get(data.tracks.next, isOnSpotify.refreshTracks);
+			if (data.tracks.next) {
+				NProgress.start();
+				$.get(data.tracks.next, isOnSpotify.refreshTracks);
+			}
 		});
 	},
 	refreshAlbums: function(data) {
 		isOnSpotify.albumsDiv.children().remove();
 
 		isOnSpotify.albumsDiv.html(Handlebars.templates.albums(data));
+		if (NProgress.status) NProgress.done();
 		
 		$('#previousAlbums').click(function(e) {
 			e.preventDefault();
-			if (data.albums.previous) $.get(data.albums.previous, isOnSpotify.refreshAlbums);
+			if (data.albums.previous) {
+				NProgress.start();
+				$.get(data.albums.previous, isOnSpotify.refreshAlbums);
+			}
 		});
 		$('#nextAlbums').click(function(e) {
 			e.preventDefault();
-			if (data.albums.next) $.get(data.albums.next, isOnSpotify.refreshAlbums);
+			if (data.albums.next) {
+				NProgress.start();
+				$.get(data.albums.next, isOnSpotify.refreshAlbums);
+			}
 		});
 	},
 	refreshArtists: function(data) {
 		isOnSpotify.artistsDiv.children().remove();
 
 		isOnSpotify.artistsDiv.html(Handlebars.templates.artists(data));
+		if (NProgress.status) NProgress.done();
+
 		$('#previousArtists').click(function(e) {
 			e.preventDefault();
-			if (data.artists.previous) $.get(data.artists.previous, isOnSpotify.refreshArtists);
+			if (data.artists.previous) {
+				NProgress.start();
+				$.get(data.artists.previous, isOnSpotify.refreshArtists);
+			}
 		});
 		$('#nextArtists').click(function(e) {
 			e.preventDefault();
-			if (data.artists.next) $.get(data.artists.next, isOnSpotify.refreshArtists);
+			if (data.artists.next) {
+				NProgress.start();
+				$.get(data.artists.next, isOnSpotify.refreshArtists);
+			}
 		});
 	},
 	refreshResults: function(data) {
 		['Tracks', 'Albums', 'Artists'].forEach(function(x) {
 			isOnSpotify['refresh' + x](data);
 		});
+		console.log('done');
+		NProgress.done();
 	},
 	refreshAlerts: function() {
 		var obj = {
@@ -162,6 +186,8 @@ var isOnSpotify = {
 		isOnSpotify.alertsDiv.html(Handlebars.templates.country(obj));
 	},
 	search: function(options) {
+		console.log('start');
+		NProgress.start();
 		isOnSpotify.searchBar.blur();
 		isOnSpotify.lastQuery = options.q;
 		isOnSpotify.refreshAlerts();
