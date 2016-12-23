@@ -1,11 +1,7 @@
 # is-it-on-spotify
-Is it on Spotify? Find out with this small webapp!
+Is it on Spotify? Find out with this small webapp! Try it out at https://mshindal.github.io/is-it-on-spotify/
 
-## Preparation
-You'll need `npm`, `bower`, and `grunt`. Download dependencies with `npm install` and then `bower install`. Then run `grunt` to compile source files, copy files over to the public directory, and listen for changes to source files. 
+## Building
+You'll need `node`, `npm`, `bower`, and `grunt`. Download dependencies with `npm install` and then `bower install`. Then run `grunt` to compile source files and copy the compiled files over to the public directory.
 
-## Launch
-Run `node src/index.js` to host the app on `http://localhost:8080`.
-
-## Hosting
-This webapp is hosted on Github Pages, and the `gh-pages` branch is just a copy of the `/public` directory in `master`.
+For development, `dev-server.js` contains a simple HTTP server that will host everything in the public directory. Run `node dev-server.js` to host the app on http://localhost:8080. Additionally, `grunt watch` will watch for changes to Handlebars templates and Less source files and will automatically re-compile them if they change. 

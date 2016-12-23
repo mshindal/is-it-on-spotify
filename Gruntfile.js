@@ -55,7 +55,7 @@ module.exports = function(grunt) {
             all: {
                 files: [
                     // copy js files
-                    { flatten: true, expand: true, src: ['bower_components/jquery/dist/jquery.min.js', 'bower_components/jquery/dist/jquery.min.map', 'bower_components/bootstrap/dist/js/bootstrap.min.js', 'bower_components/handlebars/handlebars.runtime.min.js', 'bower_components/nprogress/nprogress.js'], dest: 'public/js/' },
+                    { flatten: true, expand: true, src: ['bower_components/jquery/dist/jquery.min.js', 'bower_components/jquery/dist/jquery.min.map', 'bower_components/bootstrap/dist/js/bootstrap.min.js', 'bower_components/handlebars/handlebars.runtime.min.js', 'bower_components/nprogress/nprogress.js', 'src/js/main.js'], dest: 'public/js/' },
                     // copy css
                     { flatten: true, expand: true, src: ['bower_components/nprogress/nprogress.css'], dest: 'public/css/' },
                     // copy flag images
@@ -73,5 +73,5 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-copy');
 
-    grunt.task.registerTask('default', ['copy', 'handlebars', 'watch']);
+    grunt.task.registerTask('default', ['copy', 'handlebars']);
 }
