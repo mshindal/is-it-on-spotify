@@ -10,7 +10,7 @@
 			<div class="list-group">
 				{{#each artists.items}}
 					<div class="list-group-item artist">
-						<a class="selflink" href="/#artist:{{encodeHash this.name}}">
+						<a class="selflink" href="{{location}}#artist:{{encodeHash this.name}}">
 							<h4 class="list-group-item-heading">
 								{{this.name}}
 							</h4>
